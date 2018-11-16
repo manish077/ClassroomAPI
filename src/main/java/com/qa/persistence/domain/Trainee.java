@@ -19,6 +19,8 @@ public class Trainee {
 		this.id = id;
 		this.traineeName = traineeName;
 	}
+	
+	public Trainee() {}
 
 	public Long getTraineeID() {
 		return id;

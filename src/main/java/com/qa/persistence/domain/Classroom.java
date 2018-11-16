@@ -3,25 +3,32 @@ package com.qa.persistence.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Classroom {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(length = 50)
 	private String trainer;
 	@Column(length = 100)
 	private int trainerID;
-	@OneToMany()
-	private List<Trainee> traineeList = new ArrayList<Trainee>();
+
+	@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn()
+	private List<Trainee> traineeList;
+	
+	public Classroom() {}
 
 	public Long getClassroomID() {
 		return id;

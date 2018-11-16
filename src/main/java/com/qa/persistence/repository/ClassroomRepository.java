@@ -4,9 +4,9 @@ public interface ClassroomRepository {
 
 	String getAllClassrooms();
 
-	String createClassroom(String account);
+	String createClassroom(String classroom);
 
-	String updateClassroom(Long id, String accountToUpdate);
+	String updateClassroom(Long id, String classroomToUpdate);
 
 	String deleteClassroom(Long id);
 }
